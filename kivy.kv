@@ -1,0 +1,448 @@
+ScreenManager:
+    id:m
+    MDScreen:
+        name:"Secondwindow"
+        md_bg_color: "#f0f3f8"
+        size_hint: (1,1)
+        MDBoxLayout:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.04}
+            size_hint: (1,.1)
+            radius: [0, 0, 25, 25]
+            md_bg_color: "#f0f3f8"
+            orientation: 'vertical'
+            MDFloatLayout:
+                MDFillRoundFlatIconButton:
+                    icon:"play"
+                    md_bg_color: "#F45050"
+                    pos_hint: {'center_x': 0.2,'center_y': 0.9}
+                    icon_size:30
+                    theme_text_color:"Custom"
+                    text:"Start"
+                    text_color:"#F0F0F0"
+                    line_color: "#F0F0F0"
+                    icon_color:"#F0F0F0"
+                    font_name: "Poppins-SemiBold.ttf"
+                    size_hint_x:.2
+                    line_height: .8
+                    on_release:app.start_counting()
+        MDBoxLayout:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.46}
+            size_hint: (1,.5)
+            radius: [0, 0, 25, 25]
+            md_bg_color: "#f0f3f8"
+            padding: ('25dp', '0dp', '0dp', '0dp')
+            orientation: 'vertical'
+            MDFloatLayout:
+                MDLabel:
+                    text:"Flash Timing"
+                    font_size: "20sp"
+                    # size_hint_x:.9
+                    line_height: .8
+                    pos_hint: {'center_x': 0.5,'center_y': .59}
+                    font_name: "Poppins-SemiBold.ttf"
+                MDLabel:
+                    text:"Number Of Digits"
+                    font_size: "20sp"
+                    # size_hint_x:.9
+                    line_height: .8
+                    pos_hint: {'center_x': 0.5,'center_y': .4}
+                    font_name: "Poppins-SemiBold.ttf"
+                # MDSeparator:
+                #     # height: dp(3)
+                #     radius: [10, 10, 10, 10]
+                #     size_hint:(3,.015)
+                #     pos_hint: {'center_y': 0.8}
+                MDLabel:
+                    text:"Operation"
+                    font_size: "20sp"
+                    # size_hint_x:.9
+                    line_height: .8
+                    pos_hint: {'center_x': 0.5,'center_y': .22}
+                    font_name: "Poppins-SemiBold.ttf"
+                MDCard:
+                    elevation: 1.6
+                    border_radius: 15
+                    radius: [15]
+                    size_hint: None, None
+                    pos_hint: {'center_x': 0.8,'center_y': .59}
+                    size: (dp(120), dp(35))
+                    # padding: ('1dp', '60dp', '1dp', '50dp')
+                    MDGridLayout:
+                        cols: 3
+                        MDBoxLayout:
+                            adaptive_width: True
+                            MDIconButton:
+                                icon: 'minus'
+                                pos_hint: {'center_y': .5, 'center_x': .5}
+                                on_press:app.decrement_counter_one()
+                        MDLabel:
+                            id: counter_label_one
+                            font_style: 'Subtitle2'
+                            text: '0'
+                            halign: 'center'
+                        MDBoxLayout:
+                            adaptive_width: True
+                            MDIconButton:
+                                icon: 'plus'
+                                pos_hint: {'center_y': .5, 'center_x': .5}
+                                on_press:app.increment_counter_one()
+                MDCard:
+                    elevation: 1.6
+                    border_radius: 15
+                    radius: [15]
+                    size_hint: None, None
+                    pos_hint: {'center_x': 0.8,'center_y': .4}
+                    size:(dp(120), dp(35))
+                    MDGridLayout:
+                        cols: 3
+                        MDBoxLayout:
+                            adaptive_width: True
+                            MDIconButton:
+                                icon: 'minus'
+                                pos_hint: {'center_y': .5, 'center_x': .5}
+                                on_press:app.decrement_counter_tow()
+                        MDLabel:
+                            id: counter_label_tow
+                            font_style: 'Subtitle2'
+                            text: '0'
+                            halign: 'center'
+                        MDBoxLayout:
+                            adaptive_width: True
+                            MDIconButton:
+                                icon: 'plus'
+                                pos_hint: {'center_y': .5, 'center_x': .5}
+                                on_press:app.increment_counter_tow()
+                MDCard:
+                    elevation: 1.6
+                    border_radius: 15
+                    radius: [15]
+                    size_hint: None, None
+                    pos_hint: {'center_x': 0.8,'center_y': .22}
+                    size: (dp(120), dp(35))
+                    MDGridLayout:
+                        cols: 3
+                        MDBoxLayout:
+                            adaptive_width: True
+                            MDIconButton:
+                                icon: 'minus'
+                                pos_hint: {'center_y': .5, 'center_x': .5}
+                                on_press: app.decrement_counter_three()
+                        MDLabel:
+                            id: counter_label_three
+                            font_style: 'Subtitle2'
+                            text: '- , +'
+                            halign: 'center'
+                        MDBoxLayout:
+                            adaptive_width: True
+                            MDIconButton:
+                                icon: 'plus'
+                                pos_hint: {'center_y': .5, 'center_x': .5}
+                                on_press: app.increment_counter_three()
+        MDBoxLayout:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+            size_hint: (1,.5)
+            radius: [0, 0, 25, 25]
+            md_bg_color: "#f0f3f8"
+            orientation: 'vertical'
+            MDFloatLayout:
+                Image:
+                    id: score_image
+                    source:"image/Golden1.png"
+                    size_hint: (0.7), (0.7)
+                    pos_hint: {'center_x':0.8 ,'center_y': 0.06}
+                Image:
+                    source:"image/chimpon.png"
+                    size_hint: (0.13), (0.13)
+                    pos_hint: {'center_x':0.56 ,'center_y': 0.34}
+                MDLabel:
+                    text:"Score"
+                    theme_text_color:"Custom"
+                    text_color:"#000000"
+                    font_name:"Poppins-SemiBold.ttf"
+                    halign:"center"
+                    font_size:"27sp"
+                    pos_hint: {'center_x':0.28 ,'center_y': 0.45}
+                    # size_hint: (0.3), (0.3)
+                MDLabel:
+                    id: score_lable
+                    text:"0"
+                    theme_text_color:"Custom"
+                    text_color:"#000000"
+                    font_name:"Poppins-SemiBold.ttf"
+                    halign:"center"
+                    font_size:"30sp"
+                    pos_hint: {'center_x':0.12 ,'center_y': 0.45}
+                    size_hint: (0.2), (0.2)
+                MDLabel:
+                    id: slogan
+                    text:""
+                    theme_text_color:"Custom"
+                    text_color:"#000000"
+                    font_name:"Poppins-SemiBold.ttf"
+                    halign:"center"
+                    font_size:13
+                    pos_hint: {'center_x':0.14 ,'center_y': 0.13}
+                MDBoxLayout:
+                    padding: "10dp"
+                    radius: [60, 60, 25, 25]
+                    size_hint_x:.6
+                    size_hint_y:0.10
+                    pos_hint: {'center_x':0.3 ,'center_y': 0.24}
+                    MDProgressBar:
+                        id: progressbar
+                        value: 1
+                        radius: [dp(25)]
+    MDScreen:
+        name:"start_count"
+        MDBoxLayout:
+            size_hint: (1,1)
+            radius: [0, 0, 25, 25]
+            md_bg_color: "#f0f3f8"
+            orientation: 'vertical'
+            MDLabel:
+                id: number_label
+                text:" "
+                markup:True
+                font_size: "90sp"
+                line_height: .8
+                halign:"center"
+                font_name: "Poppins-SemiBold.ttf"
+                text_color: app.theme_cls.primary_color
+    MDScreen:
+        name: 'user_input'
+        MDBoxLayout:
+            size_hint: (1,1)
+            radius: [0, 0, 25, 25]
+            md_bg_color: "#f0f3f8"
+            orientation: 'vertical'
+            MDFloatLayout:
+                MDFillRoundFlatIconButton:
+                    icon:'check-all'
+                    text:'Enter'
+                    md_bg_color: "#e3e3ff"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.2}
+                    icon_size:30
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    line_color: "#F0F0F0"
+                    icon_color:"#4b00c6"
+                    font_name: "Poppins-SemiBold.ttf"
+                    size_hint_x:.3
+                    line_height: .8
+                    on_release:app.result_number()
+                MDTextField:
+                    id: result
+                    hint_text:"Enter Result"
+                    min__length: 5
+                    pos_hint: {"center_x": 0.5, "center_y": 0.42}
+                    size_hint_x: .5
+                    font_size:20
+                    font_name: "Poppins-SemiBold.ttf"
+                    halign:"center"
+                    theme_text_color:"Custom"
+                    background_color:"#FFEBEE"
+                    input_filter: lambda text, from_undo: ''.join(filter(lambda x: x.isdigit() or x == '-', text))
+                Image:
+                    source:"image/sink.png"
+                    pos_hint: {"center_x": .5, "center_y": .73}
+                    size_hint: dp(0.7), dp(0.7)
+    MDScreen:
+        name: 'happy_window'
+        size_hint: (1,1)
+        MDBoxLayout:
+            size_hint: (1,1)
+            md_bg_color: "#4b00c6"
+            orientation: 'vertical'
+            MDFloatLayout:
+                MDLabel:
+                    text:"You Win!"
+                    font_size:22
+                    theme_text_color:"Custom"
+                    text_color:"white"
+                    font_name:"Poppins-SemiBold.ttf"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.8}
+                    halign:"center"
+                Image:
+                    source:"image/giphy.gif"
+                    allow_stretch: True
+                    anim_delay: 0.03
+                    size_hint:(0.7),(0.7)
+                    # anim_loop: 3
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                MDFillRoundFlatIconButton:
+                    icon:'home'
+                    text:'Home'
+                    md_bg_color: "#F0F0F0"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.15}
+                    icon_size:30
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    line_color: "#F0F0F0"
+                    icon_color:"#4b00c6"
+                    font_name: "Poppins-SemiBold.ttf"
+                    size_hint_x:.3
+                    line_height: .8
+                    on_release:app.home_screen()
+    MDScreen:
+        name: 'score_window'
+        MDBoxLayout:
+            size_hint: (1,1)
+            md_bg_color: "#ccffff"
+            orientation: 'vertical'
+            MDFloatLayout:
+                MDLabel:
+                    id: lable_score
+                    text:" "
+                    font_size:22
+                    theme_text_color:"Custom"
+                    text_color:"#ff9900"
+                    font_name:"Poppins-SemiBold.ttf"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.88}
+                    halign:"center"
+                Image:
+                    source:"image/win0.png"
+                    allow_stretch: True
+                    anim_delay: 0.03
+                    size_hint:(0.7),(0.7)
+                    # anim_loop: 3
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                MDFillRoundFlatIconButton:
+                    icon:'home'
+                    text:'Home'
+                    md_bg_color: "#F0F0F0"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.11}
+                    icon_size:30
+                    theme_text_color:"Custom"
+                    text_color:"#ff9900"
+                    line_color: "#F0F0F0"
+                    icon_color:"#ff9900"
+                    font_name: "Poppins-SemiBold.ttf"
+                    size_hint_x:.3
+                    line_height: .8
+                    on_release:app.home_screen()
+    MDScreen:
+        name: 'sad'
+        md_bg_color: "#4b00c6"
+        size_hint: (1,1)
+        MDBoxLayout:
+            size_hint: (.8,.8)
+            md_bg_color: "#F0F0F0"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            radius:[5, 5, 25, 25]
+            padding: ('20dp', '0dp', '20dp', '0dp')
+            orientation: 'vertical'
+            MDFloatLayout:
+                MDIconButton:
+                    icon:"information-outline"
+                    id: button
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    # pos_hint: {'right': 1, 'up':.5 }
+                    pos_hint: {'center_x': 0.9,'center_y': .9}
+                    on_press:m.current = "information"
+                MDLabel:
+                    text:"You lose!"
+                    font_size:22
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    font_name:"Poppins-SemiBold.ttf"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.8}
+                    halign:"center"
+                MDLabel:
+                    id:correct_answer
+                    text:""
+                    font_size:15
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    font_name:"Poppins-SemiBold.ttf"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.6}
+                    size_hint_x:.5
+                    halign:"center"
+                Image:
+                    source:"image/sad.gif"
+                    allow_stretch: True
+                    anim_delay: 0.05
+                    size_hint:(0.4),(0.4)
+                    # anim_loop: 3
+                    pos_hint: {'center_x': 0.5,'center_y': 0.4}
+                MDFillRoundFlatIconButton:
+                    icon:'home'
+                    text:'Home'
+                    md_bg_color: "#F0F0F0"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.15}
+                    icon_size:30
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    line_color: "#F0F0F0"
+                    icon_color:"#4b00c6"
+                    font_name: "Poppins-SemiBold.ttf"
+                    size_hint_x:.3
+                    line_height: .8
+                    on_release:app.home_screen()
+    MDScreen:
+        name: 'information'
+        md_bg_color: "#4b00c6"
+        size_hint: (1,1)
+        MDBoxLayout:
+            size_hint: (.8,.8)
+            md_bg_color: "#F0F0F0"
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            radius:[5, 5, 25, 25]
+            padding: ('20dp', '0dp', '20dp', '0dp')
+            orientation: 'vertical'
+            MDFloatLayout:
+                MDLabel:
+                    text:"Do not give up"
+                    font_size:20
+                    theme_text_color:"Custom"
+                    text_color:"black"
+                    font_name:"Poppins-SemiBold.ttf"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.7}
+                    halign:"center"
+                MDLabel:
+                    id:correct_answer_information
+                    text:""
+                    font_size:20
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    font_name:"Poppins-SemiBold.ttf"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.3}
+                    halign:"center"
+                MDLabel:
+                    id:correct_answer_label
+                    text:""
+                    font_size:20
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    font_name:"Poppins-SemiBold.ttf"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                    halign:"center"
+                    # aize_hint_y:.3
+                MDFillRoundFlatIconButton:
+                    icon:'home'
+                    text:'Home'
+                    md_bg_color: "#F0F0F0"
+                    pos_hint: {'center_x': 0.5,'center_y': 0.15}
+                    icon_size:30
+                    theme_text_color:"Custom"
+                    text_color:"#4b00c6"
+                    line_color: "#F0F0F0"
+                    icon_color:"#4b00c6"
+                    font_name: "Poppins-SemiBold.ttf"
+                    size_hint_x:.3
+                    line_height: .8
+                    on_release:app.home_screen()
+<CustomSnackbar>
+    MDScreen:
+        MDFloatLayout:
+            MDLabel:
+                id: text_bar
+                size_hint_y: None
+                height: self.texture_size[1]
+                text: root.text
+                font_size: root.font_size
+                theme_text_color: 'Custom'
+                text_color: 'ffffff'
+                shorten: True
+                shorten_from: 'right'
+                pos_hint: {'center_y': .5}
